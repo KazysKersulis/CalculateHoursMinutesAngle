@@ -17,18 +17,22 @@ public class AngleCalculator {
         System.out.println("The angle between hours and minutes is " + calculateAngle(hours, minutes));
     }
 
-    public static int calculateAngle(int hours, int minutes) {
+    public static double calculateAngle(int hours, int minutes) {
 
         if (hours == 12) { hours = 0; }
 
-        int h_angle = (int)(0.5 * (60 * hours + minutes));
-        int m_angle = 6 * minutes;
+        if (hours < 0 || minutes < 0 || hours > 12 || minutes > 59) {
+            System.out.println("Input is invalid");
+            return 0;
+        } else {
+            double h_angle = (0.5 * (60 * hours + minutes));
+            double m_angle = 6 * minutes;
 
-        int angle = Math.abs(h_angle - m_angle);
+            double angle = Math.abs(h_angle - m_angle);
 
-        angle = Math.min(360-angle, angle);
+            angle = Math.min(360-angle, angle);
 
-        return angle;
-
+            return angle;
+        }
     }
 }
