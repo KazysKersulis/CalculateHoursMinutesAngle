@@ -14,30 +14,21 @@ public class AngleCalculator {
         System.out.println("Now please enter minutes: ");
         int minutes = sc.nextInt();
 
-        if(validateInput(hours, minutes)) {
-            calculateAngle(hours, minutes);
-        } else {
-            System.out.println("Input is invalid. Hours must be 0-12 and minutes 0-59");
-        }
+        System.out.println("The angle between hours and minutes is " + calculateAngle(hours, minutes));
     }
 
-    private static boolean validateInput(int hours, int minutes) {
-
-        boolean isValid = false;
-
-        if (hours < 0 || minutes < 0 || hours > 12 || minutes > 59) {
-            return isValid;
-        } else {
-            return isValid = true;
-        }
-    }
-
-    public static void calculateAngle(int hours, int minutes) {
+    public static int calculateAngle(int hours, int minutes) {
 
         if (hours == 12) { hours = 0; }
 
-        if (minutes == 60) { minutes = 0; }
+        int h_angle = (int)(0.5 * (60 * hours + minutes));
+        int m_angle = 6 * minutes;
+
+        int angle = Math.abs(h_angle - m_angle);
+
+        angle = Math.min(360-angle, angle);
+
+        return angle;
 
     }
-
 }
