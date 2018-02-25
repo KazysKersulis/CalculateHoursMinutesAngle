@@ -9,12 +9,10 @@ public class AngleCalculator {
     public static void startProgram() {
 
         System.out.println("Please enter hours: ");
-        String stringHours = sc.nextLine();
-        int hours = convertToInt(stringHours);
+        int hours = sc.nextInt();
 
         System.out.println("Now please enter minutes: ");
-        String stringMinutes = sc.nextLine();
-        int minutes = convertToInt(stringMinutes);
+        int minutes = sc.nextInt();
 
         System.out.println("The angle between hours and minutes is " +
                 calculateAngle(hours, minutes));
@@ -37,19 +35,5 @@ public class AngleCalculator {
 
             return angle;
         }
-    }
-
-    private static int convertToInt(String value){
-
-        int intValue = 0;
-        try{
-            intValue = Integer.parseInt(value);
-        }catch (NumberFormatException ex) {
-            System.out.println("Invalid input. Please try again!");
-            String stringHours = sc.nextLine();
-            intValue = convertToInt(stringHours);
-        }
-
-        return intValue;
     }
 }
