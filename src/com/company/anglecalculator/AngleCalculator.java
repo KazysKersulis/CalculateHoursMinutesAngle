@@ -16,6 +16,8 @@ public class AngleCalculator {
 
         System.out.println("The angle between hours and minutes is " +
                 calculateAngle(hours, minutes));
+
+        sc.close();
     }
 
     public static double calculateAngle(int hours, int minutes) {
